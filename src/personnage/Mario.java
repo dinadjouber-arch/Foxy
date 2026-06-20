@@ -65,15 +65,15 @@ public class Mario extends Personnage{
 		if(this.compteurSaut <= 40){
 			if(this.getY() > Main.scene.getHauteurPlafond()){this.setY(this.getY() - 4);}
 			else{this.compteurSaut = 41;}			
-			if(this.isVersDroite() == true){str = "/images/marioSautDroite.png";}
+			if(this.isVersDroite()){str = "/images/marioSautDroite.png";}
 			else{str = "/images/marioSautGauche.png";}			
 		// Retombee du saut
 		}else if(this.getY() + this.getHauteur() < Main.scene.getySol()){this.setY(this.getY() + 1);
-			if(this.isVersDroite() == true){str = "/images/marioSautDroite.png";}
+			if(this.isVersDroite()){str = "/images/marioSautDroite.png";}
 			else{str = "/images/marioSautGauche.png";}		
 		// Saut termine	
 		}else{				
-			if(this.isVersDroite() == true){str = "/images/marioArretDroite.png";}
+			if(this.isVersDroite()){str = "/images/marioArretDroite.png";}
 			else{str = "/images/marioArretGauche.png";}	
 			this.saut = false;
 			this.compteurSaut = 0;
@@ -99,14 +99,14 @@ public class Mario extends Personnage{
         if(super.contactDessous(objet) && this.saut)
         {
 			Main.scene.setySol(objet.getY());			
-		}else if(super.contactDessous(objet) == false){
+		}else if(!super.contactDessous(objet)){
 			Main.scene.setySol(293); // altitude du sol initial
-			if(this.saut == false){this.setY(243);}
+			if(!this.saut){this.setY(243);}
 		}
         if(super.contactDessus(objet))
         {
 			Main.scene.setHauteurPlafond(objet.getY() + objet.getHauteur()); // le plafond devient le dessous de l'objet
-		}else if(super.contactDessus(objet) == false && this.saut == false){
+		}else if(!super.contactDessus(objet) && !this.saut){
 			Main.scene.setHauteurPlafond(0);
 		}      
 	}
@@ -114,7 +114,7 @@ public class Mario extends Personnage{
 	
 	public boolean contactPiece(Piece piece)
 	{
-		if(this.contactArriere(piece) == true || this.contactAvant(piece) == true || this.contactDessous(piece) == true || this.contactDessus(piece) == true){
+		if(this.contactArriere(piece) || this.contactAvant(piece) || this.contactDessous(piece) || this.contactDessus(piece)){
 			return true;			
 		}else{return false;}
 		
@@ -131,7 +131,7 @@ public class Mario extends Personnage{
 		this.compteurMort++;
 		
         str = "/images/boom.png";
-        if(this.compteurMort > 100){
+        if(this.compteurMort > 90){
         	str = "/images/marioMeurt.png";
         	this.setY(this.getY() - 1);
        }
@@ -141,10 +141,10 @@ public class Mario extends Personnage{
 	} 
 	
     public void contact(Personnage personnage) {		
-		if(((super.contactAvant(personnage) == true) || (super.contactArriere(personnage) == true))&&(personnage.isVivant())){
+		if(((super.contactAvant(personnage)) || (super.contactArriere(personnage)))&&(personnage.isVivant())){
 			this.setMarche(false);
 		    this.setVivant(false);
-		}else if(super.contactDessous(personnage) == true){
+		}else if(super.contactDessous(personnage)){
 			personnage.setMarche(false);
 			personnage.setVivant(false);
 		}
