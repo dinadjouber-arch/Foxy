@@ -1,5 +1,5 @@
 package mario1;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 
 public class Main {
@@ -8,9 +8,14 @@ public class Main {
 	public static Scene scene;
 
 	public static void main(String[] args) {
-						
 
-			//creation de la fenetre du jeu
+
+		// Message de bienvenue
+		    JOptionPane.showMessageDialog(null, "Bienvenue dans Mario Race !\n\nUtilise les flèches pour avancer et ESPACE pour sauter.\nRamasse toutes les pièces et atteins le drapeau !", "Bienvenue", JOptionPane.INFORMATION_MESSAGE);
+
+
+
+		//creation de la fenetre du jeu
 
 			JFrame fenetre=new JFrame("Jeu style Mario");
 
