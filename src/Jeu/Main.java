@@ -1,4 +1,4 @@
-package mario1;
+package Jeu;
 import javax.swing.*;
 
 
@@ -11,13 +11,13 @@ public class Main {
 
 
 		// Message de bienvenue
-		    JOptionPane.showMessageDialog(null, "Bienvenue dans Mario Race !\n\nUtilise les flèches pour avancer et ESPACE pour sauter.\nRamasse toutes les pièces et atteins le drapeau !", "Bienvenue", JOptionPane.INFORMATION_MESSAGE);
+		    JOptionPane.showMessageDialog(null, "Bienvenue dans Foxy Race !\n\nUtilise les flèches pour avancer et ESPACE pour sauter.\nRamasse toutes les pièces et atteins le drapeau !", "Bienvenue", JOptionPane.INFORMATION_MESSAGE);
 
 
 
 		//creation de la fenetre du jeu
 
-			JFrame fenetre=new JFrame("Jeu style Mario");
+			JFrame fenetre=new JFrame("Jeu style Foxy");
 
 			fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

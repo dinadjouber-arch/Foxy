@@ -2,17 +2,17 @@ package objet;
 
 import javax.swing.ImageIcon;
 
-public class Piece extends Objet{
+public class Gem extends Objet{
 	
 	
 	
 	
 	
-	public Piece(int x,int y)
+	public Gem(int x, int y)
 	{
 		super(x, y, 30, 30);
 		
-		super.icoObjet=new ImageIcon(getClass().getResource("/images/piece1.png"));
+		super.icoObjet=new ImageIcon(getClass().getResource("/images/gem.png"));
 		super.imgObjet=this.icoObjet.getImage();
 		
 		

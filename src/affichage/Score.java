@@ -1,23 +1,21 @@
 package affichage;
 
 public class Score {
-	//**** VARIABLES ****//
-		private final int NBRE_TOTAL_PIECES = 10;
-		private int nbrePieces;
+
+		private final int NBRE_TOTAL_GEMS = 8;
+		private int nbreGems;
 			
-		//**** CONSTRUCTEUR ****//
+
 		public Score(){
-			this.nbrePieces = 0;
+			this.nbreGems = 0;
 		}
 
 				
-		//**** GETTERS ****//
-		public int getNbrePieces() {return nbrePieces;}
 
-		public int getNBRE_TOTAL_PIECES() {return NBRE_TOTAL_PIECES;}
+		public int getNbreGems() {return nbreGems;}
 
-				
-		//**** SETTERS ****//
-		public void setNbrePieces(int nbrePieces) {this.nbrePieces = nbrePieces;}
+		public int getNBRE_TOTAL_GEMS() {return NBRE_TOTAL_GEMS;}
+
+		public void setNbreGems(int nbreGems) {this.nbreGems = nbreGems;}
 
 }

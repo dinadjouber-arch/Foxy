@@ -4,7 +4,7 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-import mario1.Main;
+import Jeu.Main;
 import objet.Objet;
 
 public class Personnage {
@@ -16,8 +16,8 @@ public class Personnage {
 	public int compteur;  //compteur des pas du personnage
 	
 	protected boolean vivant; //vrai si le personnage est vivant
-	
-	
+
+
 	
 	public Personnage(int x,int y,int largeur,int hauteur)
 	{
@@ -29,7 +29,9 @@ public class Personnage {
 		this.marche=false;
 		this.versDroite=true;
 		this.vivant=true;
-		
+
+
+
 	}
 
 
@@ -66,31 +68,25 @@ public class Personnage {
 	{
 		Image img;
 		ImageIcon ico;
-		String str="/images/"+nom+"ArretDroite.png";
+		String str;
 		    
 		    	
-		    	if((this.marche==false))
+		    	if((!this.marche))
 		    	{
-		    		if(this.isVersDroite()) str="/images/"+nom+"ArretDroite.png";
-		    		else str="/images/"+nom+"ArretGauche.png";
-		    		
+		    	 str="/images/"+nom+"Arret.png";
 		    	}
 		    	else 
-		    	{this.compteur++;
+		    	{   this.compteur++;
 		    		
 		    		if(this.compteur/frequence==0)
 		    		{
-		    			if(this.isVersDroite()) str="/images/"+nom+"ArretDroite.png";
-		    		    else str="/images/"+nom+"ArretGauche.png";
+		    			str="/images/"+nom+"Arret.png";
 		    		}
-		    		else
-		    		{
-		    			if(this.isVersDroite()) str="/images/"+nom+"MarcheDroite.png";
-		    		    else str="/images/"+nom+"MarcheGauche.png";}
-		    		
-		    		if (this.compteur==2*frequence)
-		    			this.compteur=0;
-		    		
+		    		else {
+						str = "/images/" + nom + "Marche.png";
+						if (this.compteur == 2 * frequence)
+							this.compteur = 0;
+					}
 		    	}
 		    	
 		    	
@@ -100,54 +96,55 @@ public class Personnage {
 		
 		return img;
 	}
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	public boolean contactAvant(Objet objet)
 	{
-		if(this.isVersDroite() == true){
-		if(this.x + this.largeur < objet.getX() || this.x + this.largeur > objet.getX() + 5 || this.y + this.hauteur <= objet.getY() || this.y >= objet.getY() + objet.getHauteur()){return false;}
-		else{return true;}
-	    }else{return false;}
+		return this.isVersDroite() &&
+				this.x + this.largeur >= objet.getX() &&
+				this.x + this.largeur <= objet.getX() + 5 &&
+				this.y + this.hauteur > objet.getY() &&
+				this.y < objet.getY() + objet.getHauteur();
 	}
-	
+
 
 	public boolean contactArriere(Objet objet)
 	{
-		if(this.x > objet.getX() + objet.getLargeur()-5 || this.x + this.largeur < objet.getX() + objet.getLargeur() - 5 || this.y + this.hauteur <= objet.getY() || this.y >= objet.getY() + objet.getHauteur()){return false;}
-		else{return true;}
+		return !this.isVersDroite() &&
+				this.x <= objet.getX() + objet.getLargeur() &&
+				this.x >= objet.getX() + objet.getLargeur() - 5 &&
+				this.y + this.hauteur > objet.getY() &&
+				this.y < objet.getY() + objet.getHauteur();
 	}
-	
+
 
 	public boolean contactDessous(Objet objet)
 	{
-		if(this.x + this.largeur < objet.getX() + 5 || this.x > objet.getX() + objet.getLargeur() - 5 || this.y + this.hauteur < objet.getY() || this.y + this.hauteur > objet.getY() + 5){return false;}
-		else{return true;}		
+		return this.y + this.hauteur >= objet.getY() &&
+				this.y + this.hauteur <= objet.getY() + 5 &&
+				this.x + this.largeur > objet.getX() &&
+				this.x < objet.getX() + objet.getLargeur();
 	}
-	
-	
+
+
 	public boolean contactDessus(Objet objet)
 	{
-		if(this.x + this.largeur < objet.getX() + 5 || this.x > objet.getX() + objet.getLargeur() - 5 || this.y < objet.getY() + objet.getHauteur() || this.y > objet.getY() + objet.getHauteur() + 5){return false;}
-		else{return true;}
-		
+		return this.y <= objet.getY() + objet.getHauteur() &&
+				this.y >= objet.getY() + objet.getHauteur() - 5 &&
+				this.x + this.largeur > objet.getX() &&
+				this.x < objet.getX() + objet.getLargeur();
 	}
-	
-	
-	
-	public boolean proche (Objet objet)   //methode pour eviter qu il y ait un conflit entre contact avec bloc et avec tuyau
+
+
+
+	public boolean proche(Objet objet)
 	{
-		if((this.x>objet.getX()-10 && this.x<objet.getX()+objet.getLargeur()+10)||(this.x+this.largeur>objet.getX()-10 && this.x+this.largeur<objet.getX()+objet.getLargeur()+10))
-		    return true;
-		else
-			return false;
-		
-		
-		
-		
+		return this.x + this.largeur >= objet.getX() - 5 &&
+				this.x <= objet.getX() + objet.getLargeur() + 5;
 	}
 	
 	
@@ -166,7 +163,7 @@ public class Personnage {
 	//gerer les contacts entre les personnages
 	
 	 protected boolean contactAvant(Personnage personnage){
-			if(this.isVersDroite() == true){
+			if(this.isVersDroite()){
 				if(this.x + this.largeur < personnage.getX() || this.x + this.largeur > personnage.getX() + 5 || this.y + this.hauteur <= personnage.getY() || this.y >= personnage.getY() + personnage.getHauteur()){return false;}
 				else{return true;}
 			}else{return false;}
@@ -183,8 +180,8 @@ public class Personnage {
 		}
 	    
 	    public boolean proche(Personnage personnage){  	
-	    	if((this.x > personnage.getX() - 10 && this.x < personnage.getX() + personnage.getLargeur() + 10) 
-	    	|| (this.x + this.largeur > personnage.getX() - 10 && this.x + this.largeur < personnage.getX() + personnage.getLargeur() + 10)){return true;}
+	    	if((this.x > personnage.getX() - 5 && this.x <personnage.getX() + personnage.getLargeur() + 5)
+	    	|| (this.x + this.largeur >= personnage.getX() - 5 && this.x + this.largeur < personnage.getX() + personnage.getLargeur() + 5)){return true;}
 	    	else{return false;}
 	    }
 	

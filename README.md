@@ -1,14 +1,14 @@
 # Jeu Mario en Java
 
-Un jeu de plateforme inspiré de Mario, développé en Java afin de mettre en pratique les concepts de programmation orientée objet acquis durant ma deuxième année de licence informatique (L2, 2025-2026).
+Un jeu de plateforme développé en Java afin de mettre en pratique les concepts de programmation orientée objet acquis durant ma deuxième année de licence informatique (L2, 2025-2026).
 
 ## Fonctionnalités
 
-- Déplacement de Mario
+- Déplacement de Foxy
 - Saut
 - Ennemis mobiles
 - Détection des collisions
-- Ramassage de pièces
+- Ramassage de gems
 - Niveau avec défilement horizontal
 - Écran de victoire et de défaite
 

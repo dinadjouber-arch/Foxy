@@ -1,4 +1,4 @@
-package mario1;
+package Jeu;
 
 public class Chrono implements Runnable{
 	

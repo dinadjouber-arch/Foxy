@@ -4,7 +4,7 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-import mario1.Main;
+import Jeu.Main;
 
 public class Objet {
 	

@@ -3,38 +3,43 @@ package personnage;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-import mario1.Main;
+import Jeu.Main;
 import objet.Objet;
-import objet.Piece;
+import objet.Gem;
 
-public class Mario extends Personnage{
+public class Foxy extends Personnage{
 	
-	private Image imgMario;
-	private ImageIcon icoMario;
+	private Image imgFoxy;
+	private ImageIcon icoFoxy;
 	
-	private boolean saut;  //vrai si mario saute
+	private boolean saut;  //vrai si foxy saute
 	private int compteurSaut;  //duree du saut et hauteur du saut
 	private int compteurMort;
+
+
+
 	
 	
 	
-	public Mario(int x,int y)
+	public Foxy(int x, int y)
 	{
-		super(x,y,28,50);
+		super(x,y,50,50);
 		
-		this.icoMario=new ImageIcon(getClass().getResource("/images/marioArretDroite.png"));
-		this.imgMario=this.icoMario.getImage();
+		this.icoFoxy=new ImageIcon(getClass().getResource("/images/foxyArret.png"));
+		this.imgFoxy=this.icoFoxy.getImage();
 		
 		
 		this.saut=false;
 		this.compteurSaut=0;
 		this.compteurMort=0;
+
+
 	}
 
 
 
-	public Image getImgMario() {return imgMario;}
-    public void setImgMario(Image imgMario) {this.imgMario = imgMario;}
+	public Image getImgFoxy() {return imgFoxy;}
+    public void setImgFoxy(Image imgFoxy) {this.imgFoxy = imgFoxy;}
 
 
     
@@ -65,16 +70,18 @@ public class Mario extends Personnage{
 		if(this.compteurSaut <= 40){
 			if(this.getY() > Main.scene.getHauteurPlafond()){this.setY(this.getY() - 4);}
 			else{this.compteurSaut = 41;}			
-			if(this.isVersDroite()){str = "/images/marioSautDroite.png";}
-			else{str = "/images/marioSautGauche.png";}			
+			str = "/images/foxySaut.png";
+
 		// Retombee du saut
-		}else if(this.getY() + this.getHauteur() < Main.scene.getySol()){this.setY(this.getY() + 1);
-			if(this.isVersDroite()){str = "/images/marioSautDroite.png";}
-			else{str = "/images/marioSautGauche.png";}		
+		}else if(this.getY() + this.getHauteur() < Main.scene.getySol())
+		{
+			this.setY(this.getY() + 1);
+			str = "/images/foxySaut.png";
+
 		// Saut termine	
-		}else{				
-			if(this.isVersDroite()){str = "/images/marioArretDroite.png";}
-			else{str = "/images/marioArretGauche.png";}	
+		}else
+		{
+			str = "/images/foxyArret.png";
 			this.saut = false;
 			this.compteurSaut = 0;
 		}
@@ -90,7 +97,7 @@ public class Mario extends Personnage{
 	
 	
 	public void contact(Objet objet) 
-	{		
+	{
 		if((super.contactAvant(objet) && this.isVersDroite()) || (super.contactArriere(objet) && !this.isVersDroite()))
 		{
 			Main.scene.setDx(0);
@@ -100,21 +107,22 @@ public class Mario extends Personnage{
         {
 			Main.scene.setySol(objet.getY());			
 		}else if(!super.contactDessous(objet)){
-			Main.scene.setySol(293); // altitude du sol initial
-			if(!this.saut){this.setY(243);}
+			Main.scene.setySol(295); // altitude du sol initial
+			if(!this.saut){this.setY(295-this.getHauteur());}
 		}
         if(super.contactDessus(objet))
         {
 			Main.scene.setHauteurPlafond(objet.getY() + objet.getHauteur()); // le plafond devient le dessous de l'objet
 		}else if(!super.contactDessus(objet) && !this.saut){
 			Main.scene.setHauteurPlafond(0);
-		}      
+		}
+
 	}
 	
 	
-	public boolean contactPiece(Piece piece)
+	public boolean contactPiece(Gem gem)
 	{
-		if(this.contactArriere(piece) || this.contactAvant(piece) || this.contactDessous(piece) || this.contactDessus(piece)){
+		if(this.contactArriere(gem) || this.contactAvant(gem) || this.contactDessous(gem) || this.contactDessus(gem)){
 			return true;			
 		}else{return false;}
 		
@@ -129,10 +137,12 @@ public class Mario extends Personnage{
 
 
 		this.compteurMort++;
+
+
 		
         str = "/images/boom.png";
         if(this.compteurMort > 90){
-        	str = "/images/marioMeurt.png";
+        	str = "/images/foxyMeurt.png";
         	this.setY(this.getY() - 1);
        }
 		ico = new ImageIcon(getClass().getResource(str));
@@ -149,13 +159,6 @@ public class Mario extends Personnage{
 			personnage.setVivant(false);
 		}
     }				
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 }
