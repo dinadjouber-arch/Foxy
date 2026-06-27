@@ -19,7 +19,8 @@
 - Ramassage de gems
 - Niveau avec défilement horizontal
 - Écran de victoire et de défaite
-![Jeu Foxy Race](screenshots/partie_gagnee.png)
+  
+ ![Jeu Foxy Race](screenshots/partie_gagnee.png)
 
  ![Jeu Foxy Race](screenshots/partie_perdue.png)
 
