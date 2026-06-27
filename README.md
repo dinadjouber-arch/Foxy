@@ -18,6 +18,9 @@
 - IntelliJ IDEA
 - Swing / AWT
 
+## Assets utilisés
+Les ressources graphiques du jeu proviennent du pack "Sunny Land - Pixel Game Art Assets Pack" créé par ansimuz. Les assets ont été intégrés et adaptés dans ce projet.
+
 ## Prérequis
 
 - Java JDK 17 ou version supérieure
