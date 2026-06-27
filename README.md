@@ -17,6 +17,7 @@
  
 - Détection des collisions
 - Ramassage de gems
+  
   ![Jeu Foxy Race](screenshots/contact_gem.png)
 - Niveau avec défilement horizontal
 - Écran de victoire et de défaite
