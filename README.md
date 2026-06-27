@@ -11,6 +11,8 @@
 - Ramassage de gems
 - Niveau avec défilement horizontal
 - Écran de victoire et de défaite
+ <img width="686" height="354" alt="image" src="https://github.com/user-attachments/assets/1c6477b0-f1f6-45ee-942c-2e436e63188f" />
+
 
 ## Technologies utilisées
 
