@@ -7,8 +7,12 @@
 ## Fonctionnalités
 
 - Déplacement de Foxy
+![Jeu Foxy Race](screenshots/marche.png)
+  
 - Saut
 - Ennemis mobiles
+![Jeu Foxy Race](screenshots/enemi_avance.png)
+ 
 - Détection des collisions
 - Ramassage de gems
 - Niveau avec défilement horizontal
