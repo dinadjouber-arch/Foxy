@@ -8,23 +8,23 @@
 
 - Déplacement de Foxy
 
-![Jeu Foxy Race](screenshots/marche.png)
+![Foxy ayant avancé](screenshots/marche.png)
   
 - Saut
   
-![Jeu Foxy Race](screenshots/saut.png)
+![Foxy en saut](screenshots/saut.png)
   
 - Ennemis mobiles
   
-![Jeu Foxy Race](screenshots/enemi_avance.png)
+![Grenouille qui avance](screenshots/enemi_avance.png)
  
 - Détection des collisions et Ramassage de gems
   
-![Jeu Foxy Race](screenshots/contact_gem.png)
+![Foxy sur un bloc(contact avac le bloc) et ayant ramasé une gem(qu'on voit dans une image précédente)](screenshots/contact_gem.png)
 - Niveau avec défilement horizontal
 - Écran de victoire et de défaite
   
- ![Jeu Foxy Race](screenshots/partie_gagnee.png)  ![Jeu Foxy Race](screenshots/partie_perdue.png)
+ ![Partie gagnée](screenshots/partie_gagnee.png)  ![Partie perdue](screenshots/partie_perdue.png)
 
 
 ## Technologies utilisées
