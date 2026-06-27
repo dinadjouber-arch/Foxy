@@ -1,7 +1,5 @@
 # Jeu Java
 
-![Jeu Foxy Race](screenshots/debut.png)
-
 ![Jeu Foxy Race](screenshots/jeu.png)
 
 "Foxy Race" est un jeu de plateforme développé en Java afin de mettre en pratique les concepts de programmation orientée objet acquis durant ma deuxième année de licence informatique (L2, 2025-2026).
