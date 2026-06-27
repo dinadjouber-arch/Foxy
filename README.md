@@ -11,6 +11,8 @@
 ![Jeu Foxy Race](screenshots/marche.png)
   
 - Saut
+![Jeu Foxy Race](screenshots/saut.png)
+  
 - Ennemis mobiles
   
 ![Jeu Foxy Race](screenshots/enemi_avance.png)
